@@ -1,9 +1,21 @@
 <template>
   <h1>{{ name }}</h1>
+  <p><strong>Address</strong></p>
   <p>{{ address }}</p>
-  <p>{{ website }}</p>
-  <p>{{ phone }}</p>
-  <p>{{ openingHours }}</p>
+  <p><strong>Website</strong></p>
+  <p v-for="website in websites" :key="website">{{ website }}</p>
+  <p><strong>Phone</strong></p>
+  <p v-for="phone in phoneNumbers" :key="phone">{{ phone }}</p>
+  <p><strong>Opening Hours</strong></p>
+
+  <p v-for="(entry, index) in openingHours" :key="index">
+    <span v-for="(hours, days) in entry" :key="days"
+      ><strong>{{ days }}</strong>
+      <span v-for="interval in hours" :key="interval">{{
+        interval
+      }}</span></span
+    >
+  </p>
 </template>
 
 <script setup lang="ts">
@@ -17,8 +29,8 @@
 
   const name = ref('');
   const address = ref('');
-  const website = ref('https://lecafedumarche.ch');
-  const phone = ref('+41 27 203 70 70');
+  const websites = ref('');
+  const phoneNumbers = ref('');
   const openingHours = ref('');
 
   onMounted(async () => {
@@ -26,9 +38,8 @@
       const fetchedData = await getBusiness(id);
       name.value = fetchedData.name;
       address.value = fetchedData.address;
-      // todo:
-      // website = fetchedData.website;
-      // phone = fetchedData.phone;
+      websites.value = fetchedData.websites;
+      phoneNumbers.value = fetchedData.phoneNumbers;
       openingHours.value = fetchedData.openingHours;
     } catch (error) {
       console.log(error);

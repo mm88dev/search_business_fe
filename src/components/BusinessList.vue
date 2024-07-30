@@ -3,11 +3,9 @@
     <BusinessItem
       v-for="business in businessList"
       :key="business.id"
+      :id="business.id"
       :name="business.name"
       :address="business.address"
-      :website="business.website"
-      :phone="business.phone"
-      :openingHours="business.openingHours"
     />
     <p v-if="!businessList.length">No business found</p>
   </div>
@@ -22,8 +20,8 @@
         id?: string;
         name?: string;
         address?: string;
-        website?: string;
-        phone?: string;
+        websites: string[];
+        phoneNumbers: string[];
         openingHours: {
           [key: string]: string[];
         }[];
