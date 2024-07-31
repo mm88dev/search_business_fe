@@ -21,8 +21,8 @@ To get started with this project, follow the steps below:
 
 4. **Available Scripts:**
 
-   - start:dev: Starts the development server using Vite.
-   - build: Builds the project for production. This will run TypeScript type checking and build the project with Vite.
+   - yarn start:dev: Starts the development server using Vite.
+   - yarn build: Builds the project for production. This will run TypeScript type checking and build the project with Vite.
 
 5. **Dependencies:**
 
