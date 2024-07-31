@@ -1,4 +1,5 @@
 import axios, { AxiosError } from 'axios';
+import { Business } from '../types';
 
 export const api = axios.create({
   baseURL: import.meta.env.VITE_BACKEND_URL
@@ -26,7 +27,9 @@ const handleApiError = (error: AxiosError) => {
 
 export const searchBusiness = async (term: string) => {
   try {
-    const response = await api.get('/businesses/search', {
+    const response = await api.get<{
+      data: Pick<Business, 'id' | 'name' | 'address'>[];
+    }>('/businesses/search', {
       params: {
         q: term
       }
@@ -39,7 +42,7 @@ export const searchBusiness = async (term: string) => {
 
 export const getBusiness = async (id: string) => {
   try {
-    const response = await api.get(`/businesses/${id}`);
+    const response = await api.get<{ data: Business }>(`/businesses/${id}`);
     return response.data.data;
   } catch (error) {
     handleApiError(error as AxiosError);

@@ -13,18 +13,11 @@
 <script setup lang="ts">
   import BusinessItem from './BusinessItem.vue';
   const { businessList } = defineProps<{
-    businessList: [
-      {
-        id?: string;
-        name?: string;
-        address?: string;
-        websites: string[];
-        phoneNumbers: string[];
-        openingHours: {
-          [key: string]: string[];
-        }[];
-      }
-    ];
+    businessList: {
+      id: string;
+      name: string;
+      address: string;
+    }[];
   }>();
 </script>
 

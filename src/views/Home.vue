@@ -20,7 +20,7 @@
   const router = useRouter();
   const isLoading = ref(false);
 
-  const businessList = ref([]);
+  const businessList = ref<{ id: string; name: string; address: string }[]>([]);
   const notification = ref('');
   const errorMessage = ref('');
   const searchTerm = ref(route.query.term || '');
@@ -39,21 +39,22 @@
       notification.value = '';
       errorMessage.value = '';
       const fetchedBusinesses = await searchBusiness(term);
+      if (!fetchedBusinesses?.length) {
+        notification.value = 'No business found.';
+        return;
+      }
       businessList.value = fetchedBusinesses.map(business => {
         return {
           id: business.id,
           name: business.name,
-          address: business.address,
-          website: business.website,
-          phone: business.phone,
-          openingHours: business.openingHours
+          address: business.address
         };
       });
       if (!businessList.value.length) {
         notification.value = 'No business found.';
       }
     } catch (error) {
-      errorMessage.value = error.message;
+      errorMessage.value = error as string;
     } finally {
       isLoading.value = false;
     }

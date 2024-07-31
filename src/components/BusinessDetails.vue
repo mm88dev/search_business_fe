@@ -48,6 +48,7 @@
   import { onMounted, ref } from 'vue';
   import Loading from '../components/Loading.vue';
   import { getBusiness } from '../services/api.service.ts';
+  import { OpeningHours } from '../types/index.ts';
 
   const { id } = defineProps<{
     id: string;
@@ -55,15 +56,18 @@
 
   const name = ref('');
   const address = ref('');
-  const websites = ref('');
-  const phoneNumbers = ref('');
-  const openingHours = ref('');
+  const websites = ref<string[]>([]);
+  const phoneNumbers = ref<string[]>([]);
+  const openingHours = ref<OpeningHours>({});
   const isLoading = ref(false);
 
   onMounted(async () => {
     isLoading.value = true;
     try {
       const fetchedData = await getBusiness(id);
+      if (!fetchedData) {
+        throw new Error('Business not found');
+      }
       name.value = fetchedData.name;
       address.value = fetchedData.address;
       websites.value = fetchedData.websites;

@@ -6,8 +6,6 @@
   </div>
 </template>
 
-<script setup></script>
-
 <style scoped>
   .page-not-found {
     text-align: center;

@@ -52,7 +52,7 @@
 
   .input {
     width: 100%;
-    padding: 10px 30px 10px 10px; /* Add extra padding on the right for the icon */
+    padding: 10px 30px 10px 10px;
     font-size: 16px;
     border: 1px solid #ccc;
     border-radius: 5px;
