@@ -17,7 +17,7 @@ To get started with this project, follow the steps below:
 3. **Environment Variables:**
    Create a .env file in the root directory of the project to add environment variables.
 
-   VITE_BACKEND_URL=https://api.example.com
+   `VITE_BACKEND_URL=https://api.example.com`
 
 4. **Available Scripts:**
 
