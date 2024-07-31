@@ -7,12 +7,12 @@ A Vue 3 application with TypeScript for searching businesses.
 To get started with this project, follow the steps below:
 
 1. **Clone the Repository:**
-   git clone https://github.com/mm88dev/search_business_fe.git
+   `git clone https://github.com/mm88dev/search_business_fe.git`
 
-   cd search_business_fe
+   `cd search_business_fe`
 
 2. **Install Dependencies:**
-   yarn install
+   `yarn install`
 
 3. **Environment Variables:**
    Create a .env file in the root directory of the project to add environment variables.
@@ -21,8 +21,8 @@ To get started with this project, follow the steps below:
 
 4. **Available Scripts:**
 
-   - yarn start:dev: Starts the development server using Vite.
-   - yarn build: Builds the project for production. This will run TypeScript type checking and build the project with Vite.
+   `- yarn start:dev`: Starts the development server using Vite.
+   `- yarn build`: Builds the project for production. This will run TypeScript type checking and build the project with Vite.
 
 5. **Dependencies:**
 
