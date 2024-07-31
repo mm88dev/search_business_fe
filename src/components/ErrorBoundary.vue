@@ -1,13 +1,13 @@
 <template>
-  <div v-if="error">
-    <p>{{ error.message }}</p>
+  <div v-if="error" class="error-page">
+    <p class="error-message">{{ error.message }}</p>
     <router-link to="/">Go to Home</router-link>
   </div>
   <slot v-else></slot>
 </template>
 
 <script setup>
-  import { ref, onErrorCaptured } from 'vue';
+  import { onErrorCaptured, ref } from 'vue';
 
   const error = ref(null);
 
@@ -16,3 +16,13 @@
     return false;
   });
 </script>
+
+<style scoped>
+  .error-page {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+  }
+</style>

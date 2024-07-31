@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <main class="list">
     <BusinessItem
       v-for="business in businessList"
       :key="business.id"
@@ -7,7 +7,7 @@
       :name="business.name"
       :address="business.address"
     />
-  </div>
+  </main>
 </template>
 
 <script setup lang="ts">
@@ -28,4 +28,15 @@
   }>();
 </script>
 
-<style scoped></style>
+<style scoped>
+  .list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 20px;
+    padding: 20px 0;
+    margin: 0 auto;
+    width: 100%;
+    box-sizing: border-box;
+  }
+</style>
