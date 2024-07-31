@@ -7,13 +7,11 @@
       :name="business.name"
       :address="business.address"
     />
-    <p v-if="!businessList.length">No business found</p>
   </div>
 </template>
 
 <script setup lang="ts">
   import BusinessItem from './BusinessItem.vue';
-  import { defineProps } from 'vue';
   const { businessList } = defineProps<{
     businessList: [
       {

@@ -1,6 +1,7 @@
 import { createRouter, createWebHistory } from 'vue-router';
-import Business from '../views/Business.vue';
+import BusinessPage from '../views/BusinessPage.vue';
 import Home from '../views/Home.vue';
+import NotFound from '../views/NotFound.vue';
 
 const routes = [
   {
@@ -11,8 +12,14 @@ const routes = [
   {
     path: '/business/:id',
     name: 'Business',
-    component: Business,
+    component: BusinessPage,
     props: true
+  },
+  // catch all
+  {
+    path: '/:pathMatch(.*)*',
+    name: 'NotFound',
+    component: NotFound
   }
 ];
 
